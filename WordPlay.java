@@ -17,12 +17,12 @@ public class WordPlay {
     }
     
     public String replaceVowels(String phrase, char ch) {
-        StringBuilder replaced = new StringBuilder();
+        StringBuilder replaced = new StringBuilder(phrase);
         for (int i = 0; i < phrase.length(); i++) {
             if (isVowel(phrase.charAt(i))) {
-                replaced.append(ch);
+                replaced.setCharAt(i, ch);
             }
-            else replaced.append(phrase.charAt(i));
+            else replaced.setCharAt(i, phrase.charAt(i));
         }
         return replaced.toString();
     }
@@ -31,8 +31,8 @@ public class WordPlay {
         StringBuilder emphasized = new StringBuilder();
         for (int i = 0; i < phrase.length(); i++) {
             if (Character.toLowerCase(phrase.charAt(i)) == Character.toLowerCase(ch)) {
-                if (i%2 == 0) emphasized.append('*');
-                else emphasized.append('+');
+                if (i%2 == 0) emphasized.setCharAt(i, '*');
+                else emphasized.setCharAt(i, '+');
             }
             else emphasized.append(phrase.charAt(i));
         }

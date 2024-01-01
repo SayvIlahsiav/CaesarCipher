@@ -60,20 +60,22 @@ public class CaesarCipher {
         //System.out.println( encrypt("FIRST LEGION ATTACK EAST FLANK!", 23));
         //System.out.println( encrypt("First Legion", 23));
         //System.out.println( encrypt("First Legion", 17));
-        FileResource fr = new FileResource();
-        String message = fr.asString();
-        Scanner input = new Scanner(System.in);
-        int key = input.nextInt();
-        String encrypted = encrypt(message, key);
-        System.out.println("key is " + key + "\n" + encrypted);
+        System.out.println( encrypt("At noon be in the conference room with your hat on for a surprise party. YELL LOUD!", 15));
+        //FileResource fr = new FileResource();
+        //String message = fr.asString();
+        //Scanner input = new Scanner(System.in);
+        //int key = input.nextInt();
+        //String encrypted = encrypt(message, key);
+        //System.out.println("key is " + key + "\n" + encrypted);
     }
     
     public void testEncryptTwoKeys() {
         System.out.println(encryptTwoKeys("First Legion", 23, 17));
+        System.out.println(encryptTwoKeys("At noon be in the conference room with your hat on for a surprise party. YELL LOUD!", 8, 21));
     }
     
     public static void main(String[] args) {
         CaesarCipher cc = new CaesarCipher();
-        cc.testEncryptTwoKeys();
+        cc.testEncrypt();
     }
 }
