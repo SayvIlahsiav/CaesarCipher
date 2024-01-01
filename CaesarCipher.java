@@ -14,9 +14,15 @@ public class CaesarCipher {
         String encryptedAlphabet = alphabet.substring(key) + alphabet.substring(0, key);
         for(int i = 0; i < encrypted.length(); i++) {
             char currChar = encrypted.charAt(i);
-            int idx = alphabet.indexOf(currChar);
+            int idx = alphabet.indexOf(Character.toUpperCase(currChar));
             if (idx != -1) {
                 char newChar = encryptedAlphabet.charAt(idx);
+                if(Character.isUpperCase(encrypted.charAt(i))) {
+                    newChar = Character.toUpperCase(newChar);
+                }
+                else {
+                    newChar = Character.toLowerCase(newChar);
+                }
                 encrypted.setCharAt(i, newChar);
             }
         }
@@ -25,6 +31,8 @@ public class CaesarCipher {
     
     public void testEncrypt() {
         //System.out.println( encrypt("FIRST LEGION ATTACK EAST FLANK!", 23));
+        //System.out.println( encrypt("First Legion", 23));
+        //System.out.println( encrypt("First Legion", 17));
         FileResource fr = new FileResource();
         String message = fr.asString();
         Scanner input = new Scanner(System.in);
